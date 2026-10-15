@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Easy family recipes, realistic meal plans, and grocery budget tips for real households.">
+<title>The Real-Life Family Table | Good Food. Real Budgets.</title>
+<style>
+:root {
+  --green:#24563d;
+  --light-green:#e6f1df;
+  --orange:#ff9d45;
+  --pink:#ffe1e5;
+  --cream:#fff9ed;
+  --dark:#292e29;
+  --white:#ffffff;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--cream);
+  color:var(--dark);
+  line-height:1.7;
+}
+a {color:var(--green)}
+.topbar {
+  background:var(--green);
+  color:white;
+  text-align:center;
+  padding:9px;
+  font-weight:bold;
+  font-size:13px;
+  letter-spacing:1px;
+}
+header {
+  background:white;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+  border-bottom:3px solid var(--light-green);
+}
+.logo {
+  color:var(--green);
+  font-size:22px;
+  font-weight:900;
+  line-height:1.2;
+  text-decoration:none;
+}
+.logo span {
+  display:block;
+  font-size:12px;
+  color:#e87932;
+  letter-spacing:2px;
+  margin-top:5px;
+}
+nav {display:flex;flex-wrap:wrap;gap:15px}
+nav a {text-decoration:none;font-size:14px;font-weight:bold}
+.hero {
+  text-align:center;
+  padding:75px 7%;
+  background:linear-gradient(135deg,#e6f1df,#fff0d9,#ffe0e4);
+}
+.eyebrow {
+  color:var(--green);
+  text-transform:uppercase;
+  font-size:13px;
+  letter-spacing:2px;
+  font-weight:900;
+  margin-bottom:12px;
+}
+h1 {
+  color:var(--green);
+  font-size:clamp(36px,8vw,65px);
+  line-height:1.08;
+  max-width:850px;
+  margin:0 auto 20px;
+}
+.hero p {max-width:650px;margin:0 auto 24px;font-size:18px}
+.button {
+  display:inline-block;
+  background:var(--green);
+  color:white;
+  padding:12px 22px;
+  border-radius:30px;
+  font-weight:bold;
+  text-decoration:none;
+  margin:5px;
+  border:0;
+  cursor:pointer;
+  font-size:15px;
+}
+.button.orange {background:#e87932;color:white}
+section {padding:60px 7%;scroll-margin-top:15px}
+.section-heading {
+  max-width:700px;
+  margin:0 auto 32px;
+  text-align:center;
+}
+h2 {
+  color:var(--green);
+  font-size:clamp(28px,5vw,40px);
+  line-height:1.2;
+  margin-bottom:12px;
+}
+h3 {color:var(--green);margin-bottom:10px;line-height:1.3}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));
+  gap:22px;
+  max-width:1100px;
+  margin:auto;
+}
+.card {
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  border:1px solid #eadfce;
+  box-shadow:0 5px 18px #292e2910;
+}
+.emoji {font-size:38px;margin-bottom:10px}
+.tag {
+  display:inline-block;
+  background:var(--light-green);
+  color:var(--green);
+  border-radius:20px;
+  padding:4px 10px;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+.soft {background:var(--light-green)}
+.pink {background:var(--pink)}
+.orange-bg {background:#fff0d9}
+.recipe {
+  max-width:850px;
+  margin:auto;
+  background:white;
+  border:1px solid #eadfce;
+  border-radius:20px;
+  padding:clamp(22px,5vw,40px);
+}
+.recipe-columns {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));
+  gap:25px;
+}
+.recipe ul,.recipe ol {padding-left:22px;margin:10px 0 20px}
+.recipe li {margin-bottom:7px}
+.highlight {
+  background:var(--green);
+  color:white;
+  border-radius:20px;
+  padding:35px;
+  max-width:1050px;
+  margin:auto;
+  text-align:center;
+}
+.highlight h2 {color:white}
+.highlight p {max-width:700px;margin:0 auto 18px}
+.highlight .button {background:var(--orange);color:var(--dark)}
+.checklist {list-style:none;margin-top:12px}
+.checklist li {padding:7px 0;border-bottom:1px dashed #ded5c6}
+.checklist li:before {content:"☐ ";color:var(--green);font-weight:bold}
+.table-wrap {overflow-x:auto;max-width:1000px;margin:auto}
+.meal-plan {width:100%;border-collapse:collapse;background:white}
+.meal-plan th,.meal-plan td {
+  padding:12px;
+  text-align:left;
+  border:1px solid #e5e0d5;
+}
+.meal-plan th {background:var(--green);color:white}
+.meal-plan tr:nth-child(even) {background:#f1f6ed}
+.planner-input {
+  display:block;
+  width:100%;
+  padding:12px;
+  margin:6px 0 16px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font:inherit;
+}
+.small-note {font-size:13px;color:#555;margin-top:16px}
+footer {
+  background:#193b2a;
+  color:white;
+  padding:40px 7%;
+  text-align:center;
+}
+footer p {max-width:750px;margin:8px auto}
+footer a {color:#ffcf9f}
+@media(max-width:600px) {
+  header {justify-content:center;text-align:center}
+  nav {justify-content:center;gap:12px}
+  .hero {padding:50px 6%}
+  section {padding:45px 6%}
+  .meal-plan th,.meal-plan td {padding:9px;font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">REAL FOOD • REAL FAMILIES • REAL-LIFE BUDGETS</div>
+
+<header>
+  <a class="logo" href="#home">
+    The Real-Life Family Table
+    <span>GOOD FOOD. REAL BUDGETS.</span>
+  </a>
+  <nav aria-label="Main navigation">
+    <a href="#recipes">Recipes</a>
+    <a href="#meal-plans">Meal Plans</a>
+    <a href="#save">Save Money</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <p class="eyebrow">Welcome to our table!</p>
+  <h1>Feed Your Family Without Emptying Your Wallet.</h1>
+  <p>
+    Easy dinners, practical grocery tips, and meal planning for
+    real families living real life. No fancy ingredients. No
+    impossible budgets. Just good food and smart choices.
+  </p>
+  <a class="button" href="#recipes">Find Your Next Dinner</a>
+  <a class="button orange" href="#save">Start Saving</a>
+</section>
+
+<section id="recipes">
+  <div class="section-heading">
+    <p class="eyebrow">What's cooking?</p>
+    <h2>Simple Food. Happy Families.</h2>
+    <p>Ideas for busy nights, picky eaters, and days when nobody knows what's for dinner.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="emoji">🍝</div>
+      <span class="tag">EASY DINNER</span>
+      <h3>One-Pot Tomato Pasta</h3>
+      <p>Pasta, tomatoes, garlic, and pantry staples make a simple weeknight meal.</p>
+      <p><strong>Budget tip:</strong> Add vegetables you already have.</p>
+      <a href="#pasta">Get the recipe ↓</a>
+    </article>
+    <article class="card pink">
+      <div class="emoji">🥪</div>
+      <span class="tag">QUICK LUNCH</span>
+      <h3>Build-Your-Own Wraps</h3>
+      <p>Set out tortillas, leftover meat, cheese, lettuce, and sauces. Everyone builds their own.</p>
+      <p><strong>Budget tip:</strong> Use leftovers before buying more.</p>
+    </article>
+    <article class="card orange-bg">
+      <div class="emoji">🍳</div>
+      <span class="tag">BREAKFAST</span>
+      <h3>Easy Breakfast Bowls</h3>
+      <p>Combine eggs, potatoes, and leftover vegetables for breakfast or breakfast-for-dinner.</p>
+      <p><strong>Budget tip:</strong> Frozen vegetables work, too.</p>
+    </article>
+  </div>
+</section>
+
+<section class="soft" id="pasta">
+  <div class="section-heading">
+    <p class="eyebrow">Recipe of the day</p>
+    <h2>One-Pot Tomato Pasta</h2>
+    <p>Comfort food without a mountain of dishes.</p>
+  </div>
+  <article class="recipe">
+    <p><strong>Prep:</strong> 10 minutes | <strong>Cook:</strong> 20 minutes</p>
+    <p><strong>Servings:</strong> About 4, depending on portions</p>
+    <div class="recipe-columns">
+      <div>
+        <h3>What You'll Need</h3>
+        <ul>
+          <li>12 ounces pasta</li>
+          <li>1 can diced tomatoes (14–15 ounces)</li>
+          <li>3–4 cloves garlic, minced</li>
+          <li>4 cups broth or water, plus more as needed</li>
+          <li>1 tablespoon olive oil</li>
+          <li>Italian seasoning, salt, and pepper</li>
+          <li>Grated cheese, optional</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Let's Make It</h3>
+        <ol>
+          <li>Add pasta, tomatoes, garlic, oil, seasoning, and broth to a large pot.</li>
+          <li>Bring to a boil, then reduce to a steady simmer.</li>
+          <li>Stir often and cook until pasta is tender, about 10–15 minutes depending on shape.</li>
+          <li>Add a splash of water if the pot gets too dry.</li>
+          <li>Taste, adjust seasoning, and top with cheese if desired.</li>
+        </ol>
+      </div>
+    </div>
+    <p class="small-note">Cooking times vary by pasta shape. Make sure the pasta is fully cooked.</p>
+  </article>
+</section>
+
+<section id="meal-plans">
+  <div class="section-heading">
+    <p class="eyebrow">Take the stress out of dinner</p>
+    <h2>A Simple 3-Dinner Plan</h2>
+    <p>Swap ingredients you already own and make the plan work for your household.</p>
+  </div>
+  <div class="table-wrap">
+    <table class="meal-plan">
+      <thead>
+        <tr><th>Day</th><th>Dinner</th><th>Smart Budget Move</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Monday</td><td>One-pot tomato pasta</td><td>Use pantry staples</td></tr>
+        <tr><td>Tuesday</td><td>Chicken, rice, and vegetables</td><td>Cook extra for tomorrow</td></tr>
+        <tr><td>Wednesday</td><td>Leftover chicken wraps</td><td>Reuse leftovers</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="pink">
+  <div class="section-heading">
+    <p class="eyebrow">Real life happens</p>
+    <h2>Your Weekly Meal-Planning Reset</h2>
+    <p>Ten minutes of planning can help you shop with a purpose.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="emoji">🧊</div>
+      <h3>Shop Your Kitchen First</h3>
+      <ul class="checklist">
+        <li>Check the fridge</li>
+        <li>Check the freezer</li>
+        <li>Check the pantry</li>
+        <li>List food to use soon</li>
+      </ul>
+    </article>
+    <article class="card">
+      <div class="emoji">📝</div>
+      <h3>Make a Realistic Plan</h3>
+      <ul class="checklist">
+        <li>Choose a few dinners</li>
+        <li>Plan around busy nights</li>
+        <li>Schedule leftover night</li>
+        <li>Make a shopping list</li>
+      </ul>
+    </article>
+    <article class="card">
+      <div class="emoji">💵</div>
+      <h3>Set Your Grocery Limit</h3>
+      <ul class="checklist">
+        <li>Set a spending target</li>
+        <li>Compare unit prices</li>
+        <li>Check sale prices</li>
+        <li>Track actual spending</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="save">
+  <div class="highlight">
+    <p class="eyebrow" style="color:#ffcf9f">Spend smarter, not harder</p>
+    <h2>Little Grocery Habits. Big Potential.</h2>
+    <p>
+      A grocery budget isn't about feeding your family less.
+      It's about making the food money you already spend work
+      harder for you.
+    </p>
+    <p>
+      Start with a list, compare unit prices, plan one leftover
+      night, and avoid buying ingredients you'll only use once.
+    </p>
+    <a class="button" href="#planner">Try the Free Weekly Planner</a>
+  </div>
+</section>
+
+<section id="planner">
+  <div class="section-heading">
+    <p class="eyebrow">Your kitchen, your budget</p>
+    <h2>Free Weekly Dinner Planner</h2>
+    <p>Write down your meals before your next grocery trip.</p>
+  </div>
+  <div class="recipe">
+    <form id="mealForm">
+      <div id="mealFields"></div>
+      <label for="budget"><strong>My grocery budget ($)</strong></label>
+      <input class="planner-input" id="budget" type="number" min="0" step="0.01" placeholder="e.g. 150">
+      <button class="button" type="button" id="savePlan">Finish My Plan</button>
+      <button class="button orange" type="button" id="printPlan">Print Planner</button>
+      <p id="planMessage" aria-live="polite" style="margin-top:12px"></p>
+    </form>
+    <p class="small-note">Your entries stay in this page while it is open. Print your plan if you want to keep it.</p>
+  </div>
+</section>
+
+<section class="orange-bg" id="about">
+  <div class="section-heading">
+    <p class="eyebrow">Pull up a chair</p>
+    <h2>Welcome to Our Family Table</h2>
+    <p>
+      We're here for practical food ideas, realistic grocery
+      planning, and making family meals feel a little easier.
+      You don't need a perfect kitchen or a huge budget to make
+      good food for the people you love.
+    </p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="emoji">❤️</div>
+      <h3>Real Families</h3>
+      <p>Flexible ideas for busy schedules and different tastes.</p>
+    </article>
+    <article class="card">
+      <div class="emoji">🥕</div>
+      <h3>Less Waste</h3>
+      <p>Use what you have before buying more.</p>
+    </article>
+    <article class="card">
+      <div class="emoji">🛒</div>
+      <h3>Smarter Shopping</h3>
+      <p>Plan ahead and make choices that fit your budget.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="section-heading">
+    <h2>Let's Keep in Touch</h2>
+    <p>Have a recipe idea or topic suggestion? Add your official contact or social media links here when you're ready.</p>
+    <p class="small-note">A newsletter signup must be connected to an email service before visitors can subscribe. No subscriptions are collected by this page yet.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p><strong>The Real-Life Family Table</strong></p>
+  <p>Good food. Real budgets.</p>
+  <p>© <span id="year"></span> The Real-Life Family Table.</p>
+  <p><a href="#disclosure">Affiliate & Advertising Disclosure</a> · <a href="#privacy">Privacy Information</a></p>
+
+  <div id="disclosure" style="max-width:750px;margin:20px auto">
+    <p><strong>Affiliate & Advertising Disclosure</strong></p>
+    <p>This website may earn income from advertising, affiliate links, or digital products in the future. Any affiliate relationships will be disclosed appropriately. No affiliate links or earnings are currently promised.</p>
+  </div>
+
+  <div id="privacy" style="max-width:750px;margin:20px auto">
+    <p><strong>Privacy Information</strong></p>
+    <p>This starter website does not currently include a newsletter signup, account system, or checkout. If those features are added, this notice must be updated to explain what information is collected and how it is used.</p>
+  </div>
+
+  <p class="small-note" style="color:#eee">Costs and savings vary. Check product labels and follow food-safety guidance. No particular savings are guaranteed.</p>
+</footer>
+
+<script>
+const days = [
+  "Monday","Tuesday","Wednesday","Thursday",
+  "Friday","Saturday","Sunday"
+];
+
+const fields = document.getElementById("mealFields");
+
+days.forEach(function(day) {
+  const label = document.createElement("label");
+  label.htmlFor = "meal-" + day;
+  label.innerHTML = "<strong>" + day + " dinner</strong>";
+
+  const input = document.createElement("input");
+  input.id = "meal-" + day;
+  input.type = "text";
+  input.placeholder = "What are we having?";
+  input.className = "planner-input";
+
+  fields.appendChild(label);
+  fields.appendChild(input);
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+document.getElementById("savePlan").addEventListener("click", function() {
+  document.getElementById("planMessage").textContent =
+    "Your plan is filled in on this page. Print it or copy it somewhere safe to keep it.";
+});
+
+document.getElementById("printPlan").addEventListener("click", function() {
+  window.print();
+});
+</script>
+
+</body>
+</html>
